@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script > 
+    // Hàm tính chỉ số BMI
+function calculateBMI(weight, height) {
+  return weight / (height * height);
+}
+
+// Hàm so sánh chỉ số BMI
+function compareBMI(markBMI, johnBMI) {
+  if (markBMI > johnBMI) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// Dữ liệu cho trường hợp 1
+var markWeight1 = 78;  // kg
+var markHeight1 = 1.69;  // m
+var johnWeight1 = 92;  // kg
+var johnHeight1 = 1.95;  // m
+
+// Dữ liệu cho trường hợp 2
+var markWeight2 = 95;  // kg
+var markHeight2 = 1.88;  // m
+var johnWeight2 = 85;  // kg
+var johnHeight2 = 1.76;  // m
+
+// Tính chỉ số BMI cho Mark và John
+var markBMI1 = calculateBMI(markWeight1, markHeight1);
+var johnBMI1 = calculateBMI(johnWeight1, johnHeight1);
+
+var markBMI2 = calculateBMI(markWeight2, markHeight2);
+var johnBMI2 = calculateBMI(johnWeight2, johnHeight2);
+
+// So sánh chỉ số BMI và lưu vào biến Boolean
+var markHigherBMI1 = compareBMI(markBMI1, johnBMI1);
+var markHigherBMI2 = compareBMI(markBMI2, johnBMI2);
+
+// In kết quả
+console.log("Chỉ số BMI của Mark trường hợp 1 là:",markBMI1);
+console.log("Chỉ số BMI của John trường hợp 1 là:",johnBMI1);
+console.log("Chỉ số BMI của Mark trường hợp 2 là:",markBMI2);
+console.log("Chỉ số BMI của John trường hợp 2 là:",johnBMI2);
+console.log("Trường hợp 1: Mark có chỉ số BMI cao hơn John:", markHigherBMI1);
+console.log("Trường hợp 2: Mark có chỉ số BMI cao hơn John:", markHigherBMI2);
+    </script>
+    
+</body>
+</html>
