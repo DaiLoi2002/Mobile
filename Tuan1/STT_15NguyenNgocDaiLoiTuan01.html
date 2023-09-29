@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script > 
+    // Hàm tính chỉ số BMI
+function calculateBMI(weight, height) {
+  return weight / (height * height);
+}
+
+// Hàm so sánh chỉ số BMI
+function compareBMI(markBMI, johnBMI) {
+  if (markBMI > johnBMI) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// Dữ liệu cho trường hợp 1
+var markWeight1 = 78;  // kg
+var markHeight1 = 1.69;  // m
+var johnWeight1 = 92;  // kg
+var johnHeight1 = 1.95;  // m
+
+// Dữ liệu cho trường hợp 2
+var markWeight2 = 95;  // kg
+var markHeight2 = 1.88;  // m
+var johnWeight2 = 85;  // kg
+var johnHeight2 = 1.76;  // m
+
+// Tính chỉ số BMI cho Mark và John
+var markBMI1 = calculateBMI(markWeight1, markHeight1);
+var johnBMI1 = calculateBMI(johnWeight1, johnHeight1);
+
+var markBMI2 = calculateBMI(markWeight2, markHeight2);
+var johnBMI2 = calculateBMI(johnWeight2, johnHeight2);
+
+// So sánh chỉ số BMI và lưu vào biến Boolean
+var markHigherBMI1 = compareBMI(markBMI1, johnBMI1);
+var markHigherBMI2 = compareBMI(markBMI2, johnBMI2);
+
+// In kết quả
+console.log("Chỉ số BMI của Mark trường hợp 1 là:",markBMI1);
+console.log("Chỉ số BMI của John trường hợp 1 là:",johnBMI1);
+console.log("Chỉ số BMI của Mark trường hợp 2 là:",markBMI2);
+console.log("Chỉ số BMI của John trường hợp 2 là:",johnBMI2);
+console.log("Trường hợp 1: Mark có chỉ số BMI cao hơn John:", markHigherBMI1);
+console.log("Trường hợp 2: Mark có chỉ số BMI cao hơn John:", markHigherBMI2);
+console.log(`Trường hợp 1: Mark BMI (${markBMI1.toFixed(1)}) cao hơn John BMI (${johnBMI1.toFixed(1)})!`);
+console.log(`Trường hợp 2: Mark BMI (${markBMI2.toFixed(1)}) thấp John BMI (${johnBMI2.toFixed(1)})!`);
+console.log('%cCoding Challenge #3', 'font-weight: bold;');
+/*
+Có hai đội thể dục dụng cụ là Dolphins và Koalas. Họ cạnh tranh với nhau
+3 lần khác. Người chiến thắng có số điểm trung bình cao nhất sẽ giành được một chiếc cúp!
+Nhiệm vụ của bạn:
+1. Tính điểm trung bình của mỗi đội, sử dụng dữ liệu kiểm tra bên dưới
+2. So sánh điểm trung bình của các đội để xác định đội chiến thắng trong cuộc thi,
+và in nó ra bàn điều khiển. Đừng quên rằng có thể có kết quả hòa, vì vậy hãy kiểm tra điều đó
+nữa (hòa nghĩa là họ có cùng điểm trung bình)
+3. Phần thưởng 1: Bao gồm yêu cầu đạt điểm tối thiểu là 100. Với quy tắc này,
+đội chỉ thắng nếu có số điểm cao hơn đội kia, đồng thời
+đạt ít nhất 100 điểm. Gợi ý: Sử dụng toán tử logic để kiểm tra mức tối thiểu
+điểm số, cũng như nhiều khối else-if
+4. Tiền thưởng 2: Điểm tối thiểu cũng áp dụng cho trận hòa! Vì vậy, một trận hòa chỉ xảy ra khi
+cả hai đội có cùng số điểm và đều có số điểm lớn hơn hoặc bằng 100
+điểm. Nếu không thì không có đội nào giành được cúp
+Dữ liệu thử nghiệm:
+§ Dữ liệu 1: Cá heo đạt điểm 96, 108 và 89. Gấu túi đạt điểm 88, 91 và 110
+§ Dữ liệu thưởng 1: Cá heo đạt điểm 97, 112 và 101. Gấu túi đạt điểm 109, 95 và 123
+§ Dữ liệu thưởng 2: Cá heo đạt điểm 97, 112 và 101. Gấu túi đạt điểm 109, 95 và 106
+*/
+// Điểm của đội Dolphins và đội Koalas
+const dolphinsScores = [96, 108, 89];
+const koalasScores = [88, 91, 110];
+
+// Tính điểm trung bình cho mỗi đội
+function calculateAverage(scores) {
+  const total = scores.reduce((sum, score) => sum + score, 0);
+  return total / scores.length;
+}
+
+const dolphinsAverage = calculateAverage(dolphinsScores);
+const koalasAverage = calculateAverage(koalasScores);
+
+// In điểm trung bình của mỗi đội
+console.log(`Điểm trung bình của Dolphins là ${dolphinsAverage}`);
+console.log(`Điểm trung bình của Koalas là ${koalasAverage}`);
+
+// So sánh điểm trung bình để xác định đội chiến thắng và kiểm tra điều kiện thưởng
+if (dolphinsAverage > koalasAverage && dolphinsAverage >= 100) {
+  console.log("Đội Dolphins thắng và đạt điểm tối thiểu!");
+} else if (koalasAverage > dolphinsAverage && koalasAverage >= 100) {
+  console.log("Đội Koalas thắng và đạt điểm tối thiểu!");
+} else if (dolphinsAverage === koalasAverage && dolphinsAverage >= 100 && koalasAverage >= 100) {
+  console.log("Trận hòa với điểm tối thiểu!");
+} else {
+  console.log("Không có đội nào giành được cúp.");
+}
+console.log('%cCoding Challenge #4', 'font-weight: bold;');
+// Giá trị hóa đơn
+const bill = 275;
+
+// Tính tiền boa dựa trên giá trị hóa đơn
+const tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+
+// Tính tổng giá trị (hóa đơn + tip)
+const total = bill + tip;
+
+// In kết quả ra bảng điều khiển
+console.log(`Hóa đơn là ${bill}, Tiền boa là ${tip}, và Tổng giá trị là ${total}`);
+
+console.log('%cCoding Challenge #5', 'font-weight: bold;');
+
+  // Tính điểm trung bình cho mỗi đội
+function calcAverage(scores) {
+  const total = scores.reduce((sum, score) => sum + score, 0);
+  return total / scores.length;
+}
+
+// Kiểm tra người chiến thắng
+function checkWinner(avgDolphins, avgKoalas) {
+  if (avgDolphins >= 2 * avgKoalas) {
+    console.log(`Cá heo thắng (${avgDolphins} vs. ${avgKoalas})`);
+  } else if (avgKoalas >= 2 * avgDolphins) {
+    console.log(`Gấu túi thắng (${avgKoalas} vs. ${avgDolphins})`);
+  } else {
+    console.log("Không có đội nào thắng cuộc.");
+  }
+}
+
+// Dữ liệu thử nghiệm
+const dolphinsScores1 = [44, 23, 71];
+const koalasScores1 = [65, 54, 49];
+
+const dolphinsScores2 = [85, 54, 41];
+const koalasScores2 = [23, 34, 27];
+
+const avgDolphins1 = calcAverage(dolphinsScores1);
+const avgKoalas1 = calcAverage(koalasScores1);
+
+const avgDolphins2 = calcAverage(dolphinsScores2);
+const avgKoalas2 = calcAverage(koalasScores2);
+
+// Xác định người chiến thắng cho Dữ liệu 1 và Dữ liệu 2
+console.log("Dữ liệu 1:");
+checkWinner(avgDolphins1, avgKoalas1);
+
+console.log("Dữ liệu 2:");
+checkWinner(avgDolphins2, avgKoalas2);
+console.log('%cCoding Challenge #6', 'font-weight: bold;');
+
+
+// Bước 1: Viết hàm tính tiền boa
+function calcTip(billValue) {
+  if (billValue >= 50 && billValue <= 300) {
+    return billValue * 0.15; // 15% tiền boa
+  } else {
+    return billValue * 0.2; // 20% tiền boa
+  }
+}
+
+// Bước 2: Tạo một mảng hóa đơn
+const bills = [125, 555, 44];
+
+// Bước 3: Tạo một mảng tiền boa
+const tips = bills.map((bill) => calcTip(bill));
+
+// Bước 4: Tạo mảng tổng (hóa đơn + tiền boa)
+const totals = bills.map((bill, index) => bill + tips[index]);
+
+// In kết quả
+console.log("Mảng hóa đơn:", bills);
+console.log("Mảng tiền boa:", tips);
+console.log("Mảng tổng:", totals);
+
+    </script>
+</body>
+</html>
