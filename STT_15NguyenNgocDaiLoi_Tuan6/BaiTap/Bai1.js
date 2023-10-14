@@ -12,12 +12,24 @@ export default function Bai1() {
       <View style={styles.top}>
          <Image source={require('../assets/Vs.jpg')} style={styles.Image}></Image>
       </View>
-      <View style={{fontSize:15,
-    width:288,
-    height:18,
-    fontStyle:'normal',
-    fontFamily: 'Roboto',
-    lineHeight:17.58}}>Điện Thoại Vsmart Joy 3 - Hàng chính hãng</View>
+      <View>
+        <Text style={{fontWeight: "bold",fontFamily:"Arial", marginLeft:20}}>
+        Điện Thoại Vsmart Joy 3 - Hàng chính hãng
+        </Text>
+      </View>
+      <View style={styles.v2}>
+      <Image source={require("../assets/Star.png")} style={styles.imgstar}></Image>
+      <Image source={require("../assets/Star.png")} style={styles.imgstar}></Image>
+      <Image source={require("../assets/Star.png")} style={styles.imgstar}></Image>
+      <Image source={require("../assets/Star.png")} style={styles.imgstar}></Image>
+        <Image source={require("../assets/Star.png")} style={styles.imgstar}></Image>
+      <Text style={{fontWeight: "bold",fontFamily:"Arial", marginLeft:20, top:16}} >(Xem 828 đánh giá)</Text>
+      </View>
+      <View style={styles.v3}>
+      <Text style={{fontWeight:"bold",fontSize:25, fontFamily:"Arial"}}>1.790.000 đ</Text>
+      <Text style={{fontWeight:"bold",fontSize:20, fontFamily:"Arial",textDecorationLine:'line-through',left:30,color:'#808080',top:0}}>1.790.000 đ</Text>
+      
+      </View>
     </View>
 
   );
@@ -34,13 +46,23 @@ const styles = StyleSheet.create({
     marginLeft:50,
     marginTop:30
   },
-  text1:{
-    fontSize:15,
-    width:288,
-    height:18,
-    fontStyle:'normal',
-    fontFamily: 'Roboto',
-    lineHeight:17.58
-
+  v2:{
+    flexDirection:'row',
+    marginLeft:20
+  },
+  imgstar:{
+    width:30,
+    height:30,
+    marginLeft:5,
+    top:10
+  },
+  v3:{
+    flexDirection:'row',
+    marginLeft:20,
+    marginRight:20,
+    top:25,
+    
+  
   }
+  
 });
