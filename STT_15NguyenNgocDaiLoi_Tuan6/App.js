@@ -10,8 +10,8 @@ import Bai2 from "./BaiTap/Bai2";
 export default function App() {
   
   return (
-    <Bai1/>
-    //<Bai2/>
+    //<Bai1/>
+    <Bai2/>
     
   )
 };
