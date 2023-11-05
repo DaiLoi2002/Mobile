@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity,CheckBox } from "react-
 
 import { TextInput } from "react-native-web";
 
-export default function Bai2() {
+export default function Bai2(navigation) {
   return (
     <View style={styles.container}>
       <View style={styles.header}>

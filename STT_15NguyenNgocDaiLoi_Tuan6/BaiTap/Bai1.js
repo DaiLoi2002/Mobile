@@ -1,21 +1,17 @@
 import { StatusBar } from "expo-status-bar";
 import Icon from "react-native-vector-icons/FontAwesome";
 import * as React from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity,button } from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity,button,Button } from "react-native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from "@react-navigation/native";
 import Bai2 from "./Bai2";
+import App from "../App";
 
-const Stack = createNativeStackNavigator(); 
-export default function Bai1() {
+import {useNavigation} from '@react-navigation/native';
+
+export default function Bai1( navigation) {
   
   return (
-   
-    <NavigationContainer>
-   
-
-
-      
       <View style={styles.container}>
       <View style={styles.top}>
          <Image source={require('../assets/Vs.jpg')} style={styles.Image}></Image>
@@ -44,13 +40,10 @@ export default function Bai1() {
       <Image source={require("../assets/z4798920117134_ddbf5724396427113589bf29d97d8e69.jpg")} style={styles.chamhoi}></Image>
       
        <View style={styles.v5}>
-       <button style={styles.button1} 
-
-       onPress={() => navigate('Screen2')} 
-       >
-        <Text style={styles.textbutton1}>4 MÀU-CHỌN MÀU</Text>
-
-       </button>
+       <Button 
+      title="Go to Details"
+      onPress={() => navigation.navigate('Details')} 
+    />
        </View>
        <View style={styles.v6}>
         <button style={styles.button2}>
@@ -58,10 +51,9 @@ export default function Bai1() {
         </button>
        </View>
        
-    </View>
-    </NavigationContainer>
     
-
+  
+  </View>
   );
 }
 const styles = StyleSheet.create({
